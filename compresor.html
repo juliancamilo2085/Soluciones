@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compresor de Imágenes Online Gratis | Soluciones Web</title>
+  <meta name="description" content="Reduce el tamaño de tus imágenes en KB y MB al instante sin perder calidad visible.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5452390334253682" crossorigin="anonymous"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 15px; text-align: center; }
+    .container { max-width: 500px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 12px; }
+    nav a { color: #38bdf8; margin: 0 5px; font-size: 13px; text-decoration: none; }
+    input[type="file"] { display: none; }
+    .btn { background: #3b82f6; color: white; padding: 12px 20px; border-radius: 8px; cursor: pointer; display: inline-block; font-weight: bold; margin: 10px 0; }
+    input[type="range"] { width: 80%; }
+    button { background: #10b981; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Conversor</a> | 
+    <a href="compresor.html">Compresor</a> | 
+    <a href="contador.html">Contador Texto</a> | 
+    <a href="generador-password.html">Contraseñas</a> | 
+    <a href="calculadora-tarifa.html">Tarifa Freelance</a>
+  </nav>
+
+  <div class="container">
+    <h1>Compresor de Imágenes</h1>
+    <p>Ajusta la calidad para reducir el peso del archivo.</p>
+    
+    <label class="btn">
+      Cargar Imagen
+      <input type="file" id="imgInput" accept="image/*">
+    </label>
+
+    <div id="controls" style="display:none;">
+      <p>Calidad: <span id="qualVal">80</span>%</p>
+      <input type="range" id="quality" min="10" max="100" value="80">
+      <br><br>
+      <button onclick="compress()">Descargar Comprimida</button>
+    </div>
+  </div>
+
+  <script>
+    const imgInput = document.getElementById('imgInput');
+    const quality = document.getElementById('quality');
+    const qualVal = document.getElementById('qualVal');
+    let img = new Image();
+
+    imgInput.onchange = (e) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        img.src = event.target.result;
+        img.onload = () => document.getElementById('controls').style.display = 'block';
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    };
+
+    quality.oninput = () => qualVal.innerText = quality.value;
+
+    function compress() {
+      const cvs = document.createElement('canvas');
+      cvs.width = img.width; cvs.height = img.height;
+      cvs.getContext('2d').drawImage(img, 0, 0);
+      const link = document.createElement('a');
+      link.download = 'imagen-comprimida.jpg';
+      link.href = cvs.toDataURL('image/jpeg', quality.value / 100);
+      link.click();
+    }
+  </script>
+</body>
+</html>
