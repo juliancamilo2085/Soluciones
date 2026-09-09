@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Unidades Online Gratis | Soluciones Web</title>
+  <meta name="description" content="Calculadora de conversión rápida para unidades de almacenamiento (MB a GB) y diseño web (PX a REM).">
+  
+  <!-- CÓDIGO DE GOOGLE ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5452390334253682" crossorigin="anonymous"></script>
+
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 15px; text-align: center; }
+    .container { max-width: 480px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    .tabs { display: flex; border-bottom: 1px solid #334155; margin-bottom: 20px; }
+    .tab { flex: 1; padding: 10px; cursor: pointer; background: none; border: none; color: #94a3b8; font-size: 14px; font-weight: bold; }
+    .tab.active { color: #10b981; border-bottom: 2px solid #10b981; }
+    input[type="number"] { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: white; font-size: 16px; box-sizing: border-box; text-align: center; }
+    .result { margin-top: 15px; font-size: 18px; font-weight: bold; color: #10b981; background: #0f172a; padding: 12px; border-radius: 6px; }
+    a.home-link { display: inline-block; margin-top: 15px; color: #38bdf8; text-decoration: none; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" id="tabData" onclick="switchTab('data')">MB a GB</button>
+      <button class="tab" id="tabPx" onclick="switchTab('px')">PX a REM</button>
+    </div>
+
+    <!-- MÓDULO MB / GB -->
+    <div id="dataMode">
+      <h1>Megabytes a Gigabytes</h1>
+      <input type="number" id="mbInput" placeholder="Ingresa Megabytes (MB)" oninput="convertData()">
+      <div class="result" id="dataResult">0 MB = 0 GB</div>
+    </div>
+
+    <!-- MÓDULO PX / REM -->
+    <div id="pxMode" style="display: none;">
+      <h1>Pixeles (PX) a REM</h1>
+      <p style="font-size: 12px; color: #94a3b8;">Basado en tamaño base de 16px</p>
+      <input type="number" id="pxInput" placeholder="Ingresa Pixeles (PX)" oninput="convertPx()">
+      <div class="result" id="pxResult">0 PX = 0 REM</div>
+    </div>
+
+    <a href="index.html" class="home-link">← Volver a la herramienta principal</a>
+  </div>
+
+  <script>
+    function convertData() {
+      const mb = parseFloat(document.getElementById('mbInput').value);
+      if (!isNaN(mb)) {
+        const gb = (mb / 1024).toFixed(3);
+        document.getElementById('dataResult').innerText = `${mb} MB = ${gb} GB`;
+      } else {
+        document.getElementById('dataResult').innerText = "0 MB = 0 GB";
+      }
+    }
+
+    function convertPx() {
+      const px = parseFloat(document.getElementById('pxInput').value);
+      if (!isNaN(px)) {
+        const rem = (px / 16).toFixed(4);
+        document.getElementById('pxResult').innerText = `${px} PX = ${rem} REM`;
+      } else {
+        document.getElementById('pxResult').innerText = "0 PX = 0 REM";
+      }
+    }
+
+    function switchTab(tab) {
+      if (tab === 'data') {
+        document.getElementById('dataMode').style.display = 'block';
+        document.getElementById('pxMode').style.display = 'none';
+        document.getElementById('tabData').classList.add('active');
+        document.getElementById('tabPx').classList.remove('active');
+      } else {
+        document.getElementById('dataMode').style.display = 'none';
+        document.getElementById('pxMode').style.display = 'block';
+        document.getElementById('tabData').classList.remove('active');
+        document.getElementById('tabPx').classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
