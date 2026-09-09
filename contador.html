@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de Palabras y Caracteres Gratis | Soluciones Web</title>
+  <meta name="description" content="Cuenta palabras, caracteres, frases y tiempo estimado de lectura en tiempo real.">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5452390334253682" crossorigin="anonymous"></script>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 15px; text-align: center; }
+    .container { max-width: 550px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 12px; }
+    nav a { color: #38bdf8; margin: 0 5px; font-size: 13px; text-decoration: none; }
+    textarea { width: 90%; height: 150px; background: #0f172a; color: #fff; border: 1px solid #334155; border-radius: 8px; padding: 10px; font-size: 14px; }
+    .stats { display: flex; justify-content: space-around; margin-top: 15px; }
+    .box { background: #334155; padding: 10px; border-radius: 8px; min-width: 80px; }
+    .box h2 { margin: 0; color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Conversor</a> | 
+    <a href="compresor.html">Compresor</a> | 
+    <a href="contador.html">Contador Texto</a> | 
+    <a href="generador-password.html">Contraseñas</a> | 
+    <a href="calculadora-tarifa.html">Tarifa Freelance</a>
+  </nav>
+
+  <div class="container">
+    <h1>Contador de Texto</h1>
+    <textarea id="text" placeholder="Pega o escribe tu texto aquí..."></textarea>
+    <div class="stats">
+      <div class="box"><h2 id="words">0</h2><small>Palabras</small></div>
+      <div class="box"><h2 id="chars">0</h2><small>Caracteres</small></div>
+      <div class="box"><h2 id="time">0m</h2><small>Lectura</small></div>
+    </div>
+  </div>
+
+  <script>
+    const txt = document.getElementById('text');
+    txt.oninput = () => {
+      const v = txt.value.trim();
+      const w = v ? v.split(/\s+/).length : 0;
+      document.getElementById('words').innerText = w;
+      document.getElementById('chars').innerText = v.length;
+      document.getElementById('time').innerText = Math.ceil(w / 200) + 'm';
+    };
+  </script>
+</body>
+</html>
