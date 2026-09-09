@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronómetro y Temporizador Online Gratis | Soluciones Web</title>
+  <meta name="description" content="Cronómetro y temporizador digital online preciso y fácil de usar desde cualquier dispositivo sin instalar aplicaciones.">
+  
+  <!-- CÓDIGO DE GOOGLE ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5452390334253682" crossorigin="anonymous"></script>
+
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 15px; text-align: center; }
+    .container { max-width: 480px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    .display { font-size: 42px; font-family: monospace; font-weight: bold; margin: 20px 0; color: #38bdf8; background: #0f172a; padding: 15px; border-radius: 8px; border: 1px solid #334155; }
+    .btn-group { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; }
+    button { flex: 1; padding: 12px; border-radius: 6px; border: none; font-weight: bold; font-size: 14px; cursor: pointer; transition: opacity 0.2s; }
+    button:active { opacity: 0.8; }
+    .start { background: #10b981; color: white; }
+    .stop { background: #ef4444; color: white; }
+    .reset { background: #64748b; color: white; }
+    .tabs { display: flex; border-bottom: 1px solid #334155; margin-bottom: 20px; }
+    .tab { flex: 1; padding: 10px; cursor: pointer; background: none; border: none; color: #94a3b8; font-size: 14px; font-weight: bold; }
+    .tab.active { color: #38bdf8; border-bottom: 2px solid #38bdf8; }
+    input[type="number"] { width: 70px; padding: 8px; border-radius: 6px; border: 1px solid #334155; background: #0f172a; color: white; font-size: 16px; text-align: center; }
+    .timer-inputs { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 15px; }
+    a.home-link { display: inline-block; margin-top: 15px; color: #38bdf8; text-decoration: none; font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" id="tabCrono" onclick="switchMode('crono')">Cronómetro</button>
+      <button class="tab" id="tabTemp" onclick="switchMode('temp')">Temporizador</button>
+    </div>
+
+    <div id="cronoMode">
+      <h1>Cronómetro Digital</h1>
+      <div class="display" id="cronoDisplay">00:00:00.0</div>
+      <div class="btn-group">
+        <button class="start" onclick="startCrono()">Iniciar</button>
+        <button class="stop" onclick="stopCrono()">Detener</button>
+        <button class="reset" onclick="resetCrono()">Reiniciar</button>
+      </div>
+    </div>
+
+    <div id="tempMode" style="display: none;">
+      <h1>Temporizador</h1>
+      <div class="timer-inputs">
+        <input type="number" id="tempMin" min="0" max="99" value="05" placeholder="Min"> m :
+        <input type="number" id="tempSec" min="0" max="59" value="00" placeholder="Seg"> s
+      </div>
+      <div class="display" id="tempDisplay">05:00</div>
+      <div class="btn-group">
+        <button class="start" onclick="startTemp()">Iniciar</button>
+        <button class="stop" onclick="stopTemp()">Detener</button>
+        <button class="reset" onclick="resetTemp()">Reiniciar</button>
+      </div>
+    </div>
+
+    <a href="index.html" class="home-link">← Volver a la herramienta principal</a>
+  </div>
+
+  <script>
+    // CRONÓMETRO
+    let cronoInterval, cronoTime = 0;
+    function updateCrono() {
+      let ms = Math.floor((cronoTime % 1000) / 100);
+      let s = Math.floor((cronoTime / 1000) % 60);
+      let m = Math.floor((cronoTime / (1000 * 60)) % 60);
+      let h = Math.floor(cronoTime / (1000 * 60 * 60));
+      document.getElementById('cronoDisplay').innerText = 
+        `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${ms}`;
+    }
+    function startCrono() {
+      if (!cronoInterval) {
+        let last = Date.now();
+        cronoInterval = setInterval(() => {
+          let now = Date.now();
+          cronoTime += now - last;
+          last = now;
+          updateCrono();
+        }, 100);
+      }
+    }
+    function stopCrono() { clearInterval(cronoInterval); cronoInterval = null; }
+    function resetCrono() { stopCrono(); cronoTime = 0; updateCrono(); }
+
+    // TEMPORIZADOR
+    let tempInterval, tempTime = 0;
+    function updateTempDisplay() {
+      let m = Math.floor(tempTime / 60);
+      let s = tempTime % 60;
+      document.getElementById('tempDisplay').innerText = 
+        `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+    function startTemp() {
+      if (!tempInterval) {
+        if (tempTime <= 0) {
+          let mins = parseInt(document.getElementById('tempMin').value) || 0;
+          let secs = parseInt(document.getElementById('tempSec').value) || 0;
+          tempTime = (mins * 60) + secs;
+        }
+        if (tempTime <= 0) return;
+        updateTempDisplay();
+        tempInterval = setInterval(() => {
+          tempTime--;
+          updateTempDisplay();
+          if (tempTime <= 0) {
+            clearInterval(tempInterval);
+            tempInterval = null;
+            alert('¡Tiempo transcurrido!');
+          }
+        }, 1000);
+      }
+    }
+    function stopTemp() { clearInterval(tempInterval); tempInterval = null; }
+    function resetTemp() {
+      stopTemp();
+      let mins = parseInt(document.getElementById('tempMin').value) || 0;
+      let secs = parseInt(document.getElementById('tempSec').value) || 0;
+      tempTime = (mins * 60) + secs;
+      updateTempDisplay();
+    }
+
+    // PESTAÑAS
+    function switchMode(mode) {
+      if (mode === 'crono') {
+        document.getElementById('cronoMode').style.display = 'block';
+        document.getElementById('tempMode').style.display = 'none';
+        document.getElementById('tabCrono').classList.add('active');
+        document.getElementById('tabTemp').classList.remove('active');
+      } else {
+        document.getElementById('cronoMode').style.display = 'none';
+        document.getElementById('tempMode').style.display = 'block';
+        document.getElementById('tabCrono').classList.remove('active');
+        document.getElementById('tabTemp').classList.add('active');
+        resetTemp();
+      }
+    }
+  </script>
+</body>
+</html>
