@@ -18,6 +18,117 @@
     button.action-btn { background: #10b981; color: white; cursor: pointer; font-weight: bold; }
     #preview { max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px; display: none; }
     
+    /* MENÚ DE NAVEGACIÓN */
+    .menu-section { margin-top: 30px; border-top: 1px solid #334155; padding-top: 20px; text-align: left; }
+    .menu-section h2 { font-size: 18px; color: #38bdf8; text-align: center; margin-bottom: 15px; }
+    .grid-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-menu a { background: #0f172a; color: #f8fafc; padding: 12px 8px; border-radius: 8px; text-decoration: none; font-size: 13px; text-align: center; border: 1px solid #334155; font-weight: 500; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .grid-menu a:hover { background: #1e293b; border-color: #38bdf8; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Conversor de Imágenes Ultra Rápido</h1>
+    <p>Convierte y optimiza tus imágenes de forma instantánea.</p>
+
+    <label class="upload-btn">
+      Seleccionar Imagen
+      <input type="file" id="imageInput" accept="image/*">
+    </label>
+
+    <div id="controls" style="display:none;">
+      <br>
+      <label for="format">Convertir a:</label>
+      <select id="format">
+        <option value="image/png">PNG</option>
+        <option value="image/jpeg">JPEG</option>
+        <option value="image/webp">WEBP</option>
+      </select>
+      <br>
+      <button class="action-btn" onclick="convertImage()">Convertir y Descargar</button>
+    </div>
+
+    <img id="preview" alt="Vista previa">
+
+    <!-- MENÚ AJUSTADO CON TUS NOMBRES DE ARCHIVO EXACTOS -->
+    <div class="menu-section">
+      <h2>Otras Herramientas Gratuitas</h2>
+      <div class="grid-menu">
+        <a href="contador.html">📝 Contador de Palabras</a>
+        <a href="generador-password.html">🔐 Generador Claves</a>
+        <a href="mayusculas.html">🔠 Mayúsculas / Minúsculas</a>
+        <a href="calculadora-tarifa.html">📊 Calculadora Tarifa</a>
+        <a href="compresor.html">🏷️ Compresor</a>
+        <a href="cronometro.html">⏱️ Cronómetro y Timer</a>
+        <a href="generador-qr.html">📱 Generador QR</a>
+        <a href="conversor-unidades.html">📐 Conversor Unidades</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+    const controls = document.getElementById('controls');
+    let loadedImage = null;
+
+    imageInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          loadedImage = new Image();
+          loadedImage.src = event.target.result;
+          loadedImage.onload = () => {
+            preview.src = loadedImage.src;
+            preview.style.display = 'block';
+            controls.style.display = 'block';
+          };
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function convertImage() {
+      if (!loadedImage) return;
+      const canvas = document.createElement('canvas');
+      canvas.width = loadedImage.width;
+      canvas.height = loadedImage.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(loadedImage, 0, 0);
+
+      const format = document.getElementById('format').value;
+      const mimeExtension = format.split('/')[1];
+      const dataUrl = canvas.toDataURL(format, 0.9);
+      const link = document.createElement('a');
+      link.download = `imagen-optimizada.${mimeExtension}`;
+      link.href = dataUrl;
+      link.click();
+    }
+  </script>
+</body>
+</html>
+ html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soluciones Web Gratis | Herramientas Online Rápidas</title>
+  <meta name="description" content="Colección de micro-herramientas gratuitas: conversor de imágenes, contador de palabras, generador QR, calculadoras y más.">
+  
+  <!-- CÓDIGO DE GOOGLE ADSENSE -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5452390334253682" crossorigin="anonymous"></script>
+
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 15px; text-align: center; }
+    .container { max-width: 500px; margin: 0 auto; background: #1e293b; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    input[type="file"] { display: none; }
+    .upload-btn { background: #3b82f6; color: white; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; display: inline-block; margin: 10px 0; }
+    select, button { padding: 10px; margin: 8px 4px; border-radius: 6px; border: none; font-size: 14px; }
+    button.action-btn { background: #10b981; color: white; cursor: pointer; font-weight: bold; }
+    #preview { max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px; display: none; }
+    
     /* MENÚ DE NAVEGACIÓN Y HERRAMIENTAS */
     .menu-section { margin-top: 30px; border-top: 1px solid #334155; padding-top: 20px; text-align: left; }
     .menu-section h2 { font-size: 18px; color: #38bdf8; text-align: center; margin-bottom: 15px; }
