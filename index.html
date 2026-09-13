@@ -1,209 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soluciones TEN | Kits de IA y Herramientas SEO Gratuitas</title>
+    <title>Soluciones TEN - Kits de IA & Herramientas Digitales</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://gumroad.com/js/gumroad.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-panel { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(56, 189, 248, 0.2); }
-        .gradient-text { background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen relative overflow-x-hidden">
-    
-    <!-- Fondo decorativo -->
-    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-cyan-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 -z-10"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 -z-10"></div>
+<body class="bg-[#0F172A] text-slate-100 antialiased min-h-screen flex flex-col justify-between">
 
     <!-- Navegación -->
-    <header class="glass-panel sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <span class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 to-blue-500 gradient-text">
+    <header class="glass-panel sticky top-0 z-50 border-b border-cyan-500/20">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-2xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 SOLUCIONES TEN
             </span>
-            <nav class="flex gap-6 text-sm font-semibold text-slate-300">
-                <a href="#tienda" class="hover:text-cyan-400 transition">Tienda IA</a>
-                <a href="#herramientas" class="hover:text-cyan-400 transition">Herramientas Gratis</a>
+            <nav class="flex gap-6 text-sm font-semibold">
+                <a href="#tienda" class="hover:text-cyan-400 transition">Tienda</a>
+                <a href="#herramientas" class="hover:text-cyan-400 transition">Herramientas</a>
             </nav>
         </div>
     </header>
 
-    <!-- [ESPACIO ADSENSE 1] -->
-    <div class="max-w-6xl mx-auto mt-8 px-6 text-center">
-        <div class="w-full bg-slate-900 border border-slate-800 rounded-lg py-4 text-xs text-slate-500">Espacio para Anuncio (AdSense)</div>
-    </div>
+    <!-- Encabezado Principal -->
+    <section class="max-w-4xl mx-auto text-center px-6 pt-16 pb-12">
+        <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 inline-block mb-4">
+            Automatización e Inteligencia Artificial
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            Potencia tu Negocio con <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Kits de IA Maestros</span>
+        </h1>
+        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
+            Prompts profesionales de alta conversión listos para copiar, personalizar y multiplicar tus resultados de inmediato.
+        </p>
+    </section>
 
-    <!-- SECCIÓN 1: TIENDA DE KITS (MONETIZACIÓN DIRECTA) -->
+    <!-- Sección Tienda de Kits -->
     <section id="tienda" class="max-w-6xl mx-auto px-6 py-12">
         <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Acelera tu trabajo con <span class="bg-gradient-to-r from-cyan-400 to-blue-500 gradient-text">Inteligencia Artificial</span></h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg">Nuestros Kits de Prompts Maestros están diseñados para profesionales que quieren ahorrar tiempo y multiplicar sus resultados.</p>
+            <h2 class="text-3xl font-bold mb-3">Catálogo de Productos Digitales</h2>
+            <p class="text-slate-400 max-w-xl mx-auto">Elige el kit optimizado para tu nicho e impulsa tus ventas hoy mismo.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- KIT 1 (ACTIVO CON ENLACE CORREGIDO) -->
-            <div class="glass-panel rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-cyan-900/30 transition transform hover:-translate-y-1">
-                <div class="relative">
-                    <span class="absolute top-3 right-3 bg-cyan-500 text-slate-900 text-xs font-black px-3 py-1 rounded-full z-10 shadow-lg">DISPONIBLE</span>
-                    <img src="https://public-files.gumroad.com/variants/cover_default.jpg" alt="Kit Community Manager" class="w-full h-52 object-cover">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- KIT 1: COMMUNITY MANAGERS -->
+            <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/50 transition">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30">
+                            DISPONIBLE
+                        </span>
+                        <span class="text-2xl font-extrabold text-white">$15 USD</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Kit de IA para Community Managers</h3>
+                    <p class="text-slate-400 text-sm mb-6">
+                        6 Prompts Maestros para crear calendarios de 30 días, guiones virales de Reels/TikTok y copys persuasivos con ChatGPT y Claude.
+                    </p>
+                    <ul class="text-sm text-slate-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2">✨ <span>100% en Español e Interactivo</span></li>
+                        <li class="flex items-center gap-2">🚀 <span>Calendarios, Copys y Guiones</span></li>
+                        <li class="flex items-center gap-2">⚡ <span>Resultados Inmediatos</span></li>
+                    </ul>
                 </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Kit IA: Community Managers</h3>
-                    <p class="text-slate-400 text-sm mb-6">6 Prompts Maestros: Calendarios de 30 días, ideas virales, copys persuasivos y guiones para Reels.</p>
-                    <a href="https://solucionesjc.gumroad.com/l/pcovli" target="_blank" class="block w-full text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-cyan-500/30">
-                        Comprar Ahora ($15)
-                    </a>
-                </div>
+                <a class="gumroad-button block w-full text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-cyan-500/30" href="https://solucionesjc.gumroad.com/l/pcovli">
+                    Comprar Ahora ($15)
+                </a>
             </div>
 
-            <!-- KIT 2 (PRÓXIMAMENTE) -->
-            <div class="glass-panel rounded-2xl overflow-hidden opacity-60">
-                <div class="bg-slate-800/50 h-52 flex items-center justify-center font-bold text-slate-500">EN CONSTRUCCIÓN</div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Kit IA: Agentes Inmobiliarios</h3>
-                    <p class="text-slate-400 text-sm mb-6">Descripciones persuasivas de propiedades, guiones de captación y seguimiento de clientes.</p>
-                    <button disabled class="w-full bg-slate-800 text-slate-500 font-bold py-3 rounded-xl cursor-not-allowed">Próximamente</button>
+            <!-- KIT 2: AGENTES INMOBILIARIOS -->
+            <div class="glass-panel rounded-2xl p-6 flex flex-col justify-between hover:border-cyan-500/50 transition">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/30">
+                            DISPONIBLE
+                        </span>
+                        <span class="text-2xl font-extrabold text-white">$15 USD</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-white">Kit de IA para Agentes Inmobiliarios</h3>
+                    <p class="text-slate-400 text-sm mb-6">
+                        6 Prompts Maestros para redactar fichas con storytelling, guiones de captación telefónica en frío, secuencias de WhatsApp e inmuebles virales.
+                    </p>
+                    <ul class="text-sm text-slate-300 space-y-2 mb-6">
+                        <li class="flex items-center gap-2">🏡 <span>Captación y Fichas Emocionales</span></li>
+                        <li class="flex items-center gap-2">📲 <span>Secuencias de WhatsApp y Llamadas</span></li>
+                        <li class="flex items-center gap-2">📈 <span>Mapeo de Objeciones de Precio</span></li>
+                    </ul>
                 </div>
-            </div>
-
-            <!-- KIT 3 (PRÓXIMAMENTE) -->
-            <div class="glass-panel rounded-2xl overflow-hidden opacity-60">
-                <div class="bg-slate-800/50 h-52 flex items-center justify-center font-bold text-slate-500">EN CONSTRUCCIÓN</div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Kit IA: Finanzas y Contabilidad</h3>
-                    <p class="text-slate-400 text-sm mb-6">Automatización de correos de cobro, análisis financiero rápido y redacción institucional.</p>
-                    <button disabled class="w-full bg-slate-800 text-slate-500 font-bold py-3 rounded-xl cursor-not-allowed">Próximamente</button>
-                </div>
+                <a class="gumroad-button block w-full text-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-cyan-500/30" href="https://solucionesjc.gumroad.com/l/jwdaqj">
+                    Comprar Ahora ($15)
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- [ESPACIO ADSENSE 2] -->
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <div class="w-full bg-slate-900 border border-slate-800 rounded-lg py-4 text-xs text-slate-500">Espacio para Anuncio (AdSense)</div>
-    </div>
-
-    <!-- SECCIÓN 2: HERRAMIENTAS GRATUITAS (TRÁFICO SEO) -->
-    <section id="herramientas" class="max-w-6xl mx-auto px-6 py-16">
-        <div class="text-center mb-10">
-            <h2 class="text-3xl font-extrabold mb-4">Super Analizador de Texto (10 en 1)</h2>
-            <p class="text-slate-400">Pega tu texto y obtén 10 métricas instantáneas. Ideal para SEO, copywriters y estudiantes.</p>
-        </div>
-
-        <div class="glass-panel rounded-3xl p-6 md:p-8">
-            <!-- Textarea -->
-            <textarea id="texto-input" rows="6" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl p-5 text-slate-200 text-lg focus:outline-none focus:border-cyan-500 transition mb-8 shadow-inner placeholder-slate-600" placeholder="Escribe o pega aquí el texto que deseas analizar..."></textarea>
-            
-            <!-- Los 10 Contadores -->
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-cyan-400" id="c-palabras">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Palabras</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-blue-400" id="c-caracteres">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Caracteres</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-emerald-400" id="c-parrafos">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Párrafos</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-purple-400" id="c-oraciones">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Oraciones</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-pink-400" id="c-espacios">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Espacios</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-2xl font-black text-amber-400 mt-1" id="c-lectura">0 min</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-2 block">T. Lectura</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-2xl font-black text-orange-400 mt-1" id="c-habla">0 min</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-2 block">T. Habla</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-indigo-400" id="c-vocales">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Vocales</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-rose-400" id="c-consonantes">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Consonantes</span>
-                </div>
-                <div class="bg-slate-800/50 p-4 rounded-xl text-center border border-slate-700/50">
-                    <span class="block text-3xl font-black text-teal-400" id="c-sin-espacios">0</span>
-                    <span class="text-slate-400 text-xs uppercase font-bold tracking-wider mt-1 block">Letras (Sin Esp)</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- TEXTO SEO PARA GOOGLE Y ADSENSE -->
-        <article class="mt-12 text-slate-300 text-sm space-y-6 max-w-4xl mx-auto bg-slate-900/40 p-8 rounded-2xl">
-            <h3 class="text-xl font-bold text-white">¿Por qué usar nuestro Contador de Palabras y Caracteres?</h3>
-            <p>En el mundo del marketing digital, el SEO y la redacción académica, la longitud del texto es fundamental. Nuestra herramienta gratuita te permite realizar un análisis exhaustivo de tus textos en tiempo real. Ya seas un Community Manager redactando un post para Instagram (que tiene un límite de 2,200 caracteres), un copywriter ajustando una meta descripción para Google (160 caracteres), o un estudiante, este <strong>analizador de texto 10 en 1</strong> es para ti.</p>
-            
-            <h4 class="text-lg font-bold text-white">Métricas detalladas que ofrecemos:</h4>
-            <ul class="list-disc pl-6 space-y-2 text-slate-400">
-                <li><strong>Contador de Palabras y Párrafos:</strong> Ideal para ensayos universitarios o artículos de blog donde se requiere una cantidad específica de palabras.</li>
-                <li><strong>Tiempo de Lectura y Habla:</strong> Fundamental para guionistas de YouTube, locutores y creadores de contenido que necesitan saber cuánto tiempo tomará leer su texto en voz alta.</li>
-                <li><strong>Análisis de caracteres:</strong> Te mostramos los caracteres totales (con espacios y sin espacios) para que tus copys encajen perfectamente en Twitter (X), LinkedIn y Facebook.</li>
-            </ul>
-        </article>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-950 py-8">
-        <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
-            <p>&copy; 2026 Soluciones TEN. Herramientas y Recursos Digitales.</p>
-        </div>
+    <!-- Pie de página -->
+    <footer class="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 Soluciones TEN. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script de las 10 herramientas -->
-    <script>
-        const input = document.getElementById('texto-input');
-        
-        input.addEventListener('input', () => {
-            const text = input.value;
-            
-            // 1. Caracteres
-            document.getElementById('c-caracteres').innerText = text.length;
-            // 2. Espacios
-            const espacios = (text.match(/ /g) || []).length;
-            document.getElementById('c-espacios').innerText = espacios;
-            // 3. Caracteres sin espacios
-            document.getElementById('c-sin-espacios').innerText = text.length - espacios;
-            
-            // 4. Palabras
-            const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
-            document.getElementById('c-palabras').innerText = words.length;
-            
-            // 5. Párrafos
-            const parrafos = text.trim() === '' ? 0 : text.replace(/\n$/gm, '').split(/\n/).length;
-            document.getElementById('c-parrafos').innerText = parrafos;
-            
-            // 6. Oraciones
-            const oraciones = text.trim() === '' ? 0 : text.split(/[.!?]+/).filter(Boolean).length;
-            document.getElementById('c-oraciones').innerText = oraciones;
-            
-            // 7. Vocales
-            const vocales = (text.match(/[aeiouáéíóúAEIOUÁÉÍÓÚ]/g) || []).length;
-            document.getElementById('c-vocales').innerText = vocales;
-            
-            // 8. Consonantes
-            const consonantes = (text.match(/[bcdfghjklmnpqrstvwxyzñBCDFGHJKLMNPQRSTVWXYZÑ]/g) || []).length;
-            document.getElementById('c-consonantes').innerText = consonantes;
-            
-            // 9 & 10. Tiempo de Lectura (200 ppm) y Habla (130 ppm)
-            const tiempoLectura = Math.ceil(words.length / 200);
-            const tiempoHabla = Math.ceil(words.length / 130);
-            document.getElementById('c-lectura').innerText = tiempoLectura + (tiempoLectura === 1 ? ' min' : ' mins');
-            document.getElementById('c-habla').innerText = tiempoHabla + (tiempoHabla === 1 ? ' min' : ' mins');
-        });
-    </script>
 </body>
 </html>
